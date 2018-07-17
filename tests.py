@@ -77,6 +77,11 @@ class WebTestCase(unittest.TestCase):
         error_comment = "Error encountered while visiting " + web_path
 
         response = self.get_response(web_path)
+        print("\n:::RESPONSE:::::::::::::::\n")
+        print(response.getheaders())
+        print(response.getheader('Content-Type'))
+        print("\n:::RESPONSE::::::::::::::::\n")
+
 
         self.assertEqual(response.getcode(), 200, error_comment)
         self.assertEqual(response.getheader('Content-Type'), 'text/plain', error_comment)
